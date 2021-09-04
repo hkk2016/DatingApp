@@ -35,5 +35,11 @@ namespace API.Controllers
             })
             .ToArray();
         }
+
+        // [HttpGet]
+        // public IEnumerable<WeatherForecast> Gets(int id)
+        // {
+        //    throw new Exception("Custom Error");
+        // }
     }
 }
