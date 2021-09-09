@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
     
     this.setCurrentUser();
 
-    this.getUsers();
+    //this.getUsers();
 
   }
 
