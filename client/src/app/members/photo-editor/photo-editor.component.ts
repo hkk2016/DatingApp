@@ -88,8 +88,14 @@ deletePhoto(photoId:number)
     {
       if(response)
       {
-        const photo = JSON.parse(response);
-        this.member.photos.indexOf(photo);
+        const photo :Photo = JSON.parse(response);
+        this.member.photos.push(photo);
+        if(photo.isMain)
+        {
+          this.user.photoUrl = photo.url;
+          this.member.photoUrl = photo.url;
+          this._accountService.setCurrentUser(this.user);
+        }
       }
     }
   }
