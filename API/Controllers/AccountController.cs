@@ -44,7 +44,7 @@ namespace API.Controllers
 
             await _context.SaveChangesAsync();
 
-            return new UserDTO { Username = user.UserName, Token = _tokenService.CreateToken(user) ,KnownAs =user.KnownAs };
+            return new UserDTO { Username = user.UserName, Token = _tokenService.CreateToken(user) ,KnownAs =user.KnownAs ,Gender = user.Gender };
         }
 
         private async Task<bool> IsUserExists(string username)
@@ -69,7 +69,7 @@ namespace API.Controllers
                 if (computedhash[i] != user.PasswordHash[i]) return Unauthorized("Invalid Password or Username");
             }
 
-            return new UserDTO { Username = user.UserName, Token = _tokenService.CreateToken(user), PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,KnownAs =user.KnownAs }; ;
+            return new UserDTO { Username = user.UserName, Token = _tokenService.CreateToken(user), PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,KnownAs =user.KnownAs ,Gender = user.Gender}; ;
         }
     }
 }
