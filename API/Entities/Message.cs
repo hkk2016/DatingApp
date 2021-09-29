@@ -23,7 +23,7 @@ namespace API.Entities
 
        public string Content {get;set;}
 
-       public DateTime MessageSent {get;set;} = DateTime.Now;
+       public DateTime MessageSent {get;set;} = DateTime.UtcNow;
 
        public bool SenderDeleted { get; set; }
 
